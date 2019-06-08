@@ -29,8 +29,10 @@ class Location
     list.collect{|city|Destination.new(city,self)}
   end
   
-  def weather 
-    #uses weather_scaper to determine temperature and precipitation for self.
+  def weather
+    #calls weather_scaper to get temperature and precipitation for self.
+    w = WeatherScraper.new(self).import
+    puts "The tempurature in #{w[0].name} is #{w[1]} and the chance of rain is #{w[2]}%. "
   end  
 
 end  

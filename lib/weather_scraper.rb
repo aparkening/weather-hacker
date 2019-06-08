@@ -13,11 +13,7 @@ class WeatherScraper
   
   def import
     #assigns temp and precip to destinations.
-    weather_hash = {}
-    weather_hash[:city] = @html[0]
-    weather_hash[:city][:temp] = @html[1]
-    weather_hash[:city][:precip] = @html[2]
-    
-    weather_hash[:city]
-  end  
+    weather_hash = @html
+  end
+
 end  
