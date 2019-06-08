@@ -12,10 +12,10 @@ class Location
     
   def top_destinations
     #gets list of potential destinations from @location
-    self.list_destinations.each{|destination|destination.weather}
+    #self.list_destinations.each{|destination|destination.weather}
     
     #calls the weather_score method to rank all destinations(class) in the list. 
-    
+    self.list_destinations.each{|destination|destination.weather_score}
     #puts list
   end  
   
