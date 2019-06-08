@@ -1,3 +1,5 @@
+require_relative './weather.rb'
+
 class Destination
   
   include Weather 

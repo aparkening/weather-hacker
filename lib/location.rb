@@ -1,7 +1,7 @@
-
+require_relative './weather.rb'
 class Location 
   
-  include Weather 
+  include Weather
   
   attr_accessor :name, :weather, :temperature, :precipitation
 
