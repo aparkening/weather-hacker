@@ -10,7 +10,8 @@ class Destination
   
   def weather
     #calls weather_scaper to get temperature and precipitation for self.
-    WeatherScraper.new(self).import
+    w = WeatherScraper.new(self).import
+    puts '#{w}'
   end  
   
   def weather_score 

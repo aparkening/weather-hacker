@@ -13,7 +13,7 @@ class Location
     
   def top_destinations
     #gets list of potential destinations from @location
-    self.list_destinations
+    self.list_destinations.each{|destination|destination.weather}
     
     #calls the weather_score method to rank all destinations(class) in the list. 
     
@@ -26,7 +26,7 @@ class Location
     puts "Your destinations are:" 
     list.each_with_index{|city, index| puts "#{index + 1}. #{city}"}
     #generates an instance of the Destinations class for each destination. 
-    list.each{|city|Destination.new(city,self)}
+    list.collect{|city|Destination.new(city,self)}
   end
   
   def weather 
