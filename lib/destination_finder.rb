@@ -13,14 +13,23 @@ class DestinationFinder
       #gets zipcode input
     #else
      self.top_destinations   
-    #end  
+     self.menu
+    #puts "Enjoy your trip!"
   end
   
   def top_destinations
-    #gets list of potential destinations from location(zipcode)
+    #gets list of potential destinations from @location
     @location.list_destinations
     
-    #ranks all destinations(class) within 300 miles of zipcode by the #weather.
+    #calls the weather_score method to rank all destinations(class) in the list. 
+    
+    #puts list
   end  
+  
+  def menu
+    #manage user navigation through the list.
+    #puts "What looks interesting to you?"
+    #links to Wikipedia page for response.
+  end 
   
 end  
