@@ -16,8 +16,9 @@ class Destination
   end  
   
   def weather_score 
-    score = self.weather[1] - self.weather[2]
-    puts "#{score}"
+    #score = self.weather[1] - self.weather[2]
+    score = 5
+    puts "The weather score for #{self.name} is #{score}."
     #creates a weather index score using temperature and precipitation from #weather.
     
   end  
