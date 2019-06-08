@@ -2,10 +2,22 @@
 class Location 
   
   attr_accessor :name, :weather, :temperature, :precipitation
+
   
   def initialize(zipcode)
     @name = zipcode
+    weather_hash = {}
     puts "Your location is #{@name}!"
+  end  
+  
+    
+  def top_destinations
+    #gets list of potential destinations from @location
+    self.list_destinations
+    
+    #calls the weather_score method to rank all destinations(class) in the list. 
+    
+    #puts list
   end  
   
   def list_destinations
@@ -18,15 +30,7 @@ class Location
   end
   
   def weather 
-    #uses weather_scaper to determine temperature and precipitation for @zipcode.
+    #uses weather_scaper to determine temperature and precipitation for self.
   end  
-  
-    def top_destinations
-    #gets list of potential destinations from @location
-    self.list_destinations
-    
-    #calls the weather_score method to rank all destinations(class) in the list. 
-    
-    #puts list
-  end  
+
 end  

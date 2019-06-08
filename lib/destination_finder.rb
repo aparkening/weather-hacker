@@ -13,7 +13,6 @@ class DestinationFinder
       #gets zipcode input
     #else
      self.menu
-    #puts "Enjoy your trip!"
   end
   
   def menu
@@ -21,6 +20,7 @@ class DestinationFinder
     #manage user navigation through the list.
     #puts "What looks interesting to you?"
     #links to Wikipedia page for response.
+    #puts "Enjoy your trip!"
   end 
   
 end  

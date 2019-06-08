@@ -8,8 +8,12 @@ class Destination
     puts "You have created #{self.name} destination for #{self.location.name}!"
   end 
   
+  def weather
+    #calls weather_scaper to get temperature and precipitation for self.
+    WeatherScraper.new(self).import
+  end  
+  
   def weather_score 
-    #creates a weather index score using temperature and precipitation.
-    #imports temperature and precipitation using #weather_scraper.
+    #creates a weather index score using temperature and precipitation from #weather.
   end  
 end  
