@@ -21,7 +21,7 @@ class Location
     dest_list = list.collect{|city|Destination.new(city,self)}
     puts "Your destinations are:" 
     dest_list.each_with_index do |city, index| 
-      puts "#{index + 1}. #{city}: temperature-- #{city.weather[1]}, chance of precipitation-- #{city.weather[2]}, weather index score-- #{city.weather_score}"}
+      puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[1]}, precipitation-- #{city.weather[2]}%, weather index-- #{city.weather_score}"
     end  
   end
   
