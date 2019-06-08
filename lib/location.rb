@@ -7,7 +7,7 @@ class Location
   end  
   
   def list_destinations
-    #scrapes www.freemaptools.com for list of zipcodes within 100 miles of self.
+    #scrapes www.freemaptools.com for list of destinations within 100 miles of self.
   end
   
   def weather 
