@@ -1,11 +1,27 @@
 #weather-hacker 
-a command line interface that takes in a location and returns a list of destinations within 300 miles with the best weather.
+a command line interface that takes in a location and returns a list of destinations within 100 miles with the best weather.
 
--- user types in zipcode
+Welcome
 
-Shows a ranked list of destinations and their weather conditions.
+gets zipcode input from user
 
-Asks: "Which destination would you like to know more about?"
+uses zipcode to generate location
 
-Links to destination wikipedia page.
+uses location to generate potential destinations
+    destinations belong to a location
+    a location has many destinations
+    
+destinations have weather 
+    weather is a hash of tomorrow's temperature and precipitation. (Should I use classes for these? Maybe a weather class...)
+    
+    weather has temperature and precipitation
+    
+destinations have a weather score using weather to combine temperature and precipitation into an index.
+    
+destination_finder generates a list of destinations ranked by the weather score 
+
+asks the user to choose a destination
+
+links to destination wikipedia page
+  
 
