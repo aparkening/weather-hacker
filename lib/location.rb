@@ -6,8 +6,7 @@ class Location
   
   def initialize(zipcode)
     @name = zipcode
-    weather_hash = {}
-    puts "Your location is #{@name}!"
+    self.weather
   end  
   
     
