@@ -20,4 +20,13 @@ class Location
   def weather 
     #uses weather_scaper to determine temperature and precipitation for @zipcode.
   end  
+  
+    def top_destinations
+    #gets list of potential destinations from @location
+    self.list_destinations
+    
+    #calls the weather_score method to rank all destinations(class) in the list. 
+    
+    #puts list
+  end  
 end  
