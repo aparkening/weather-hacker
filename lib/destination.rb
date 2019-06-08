@@ -1,10 +1,11 @@
 class Destination
   
-  attr_accessor :zipcode, :location, :weather, :temperature, :precipitation
+  attr_accessor :name, :location, :weather, :temperature, :precipitation
   
-  def initialize(zipcode, location)
-    @zipcode = zipcode
+  def initialize(name, location)
+    @name = name
     @location = location
+    puts "You have created #{self.name} destination for #{self.location.name}!"
   end 
   
   def weather_score 

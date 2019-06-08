@@ -1,11 +1,11 @@
 
 class Location 
   
-  attr_accessor :zipcode, :weather, :temperature, :precipitation
+  attr_accessor :name, :weather, :temperature, :precipitation
   
   def initialize(zipcode)
-    @zipcode = zipcode
-    puts "Your location is #{zipcode}!"
+    @name = zipcode
+    puts "Your location is #{@name}!"
   end  
   
   def list_destinations
