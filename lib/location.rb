@@ -6,7 +6,8 @@ class Location
   
   def initialize(zipcode)
     @name = zipcode
-    self.weather
+    w = self.weather
+    puts "The tempurature in #{w[0].name} is #{w[1]} and the chance of rain is #{w[2]}%. "
   end  
   
     
@@ -17,15 +18,18 @@ class Location
   def list_destinations
     #scrapes www.freemaptools.com for list of destinations within 100 miles of self.
     list = ["Madison", "Traverse", "Louisville"]
+    dest_list = list.collect{|city|Destination.new(city,self)}
     puts "Your destinations are:" 
-    list.each_with_index{|city, index| puts "#{index + 1}. #{city}"}
-    list.collect{|city|Destination.new(city,self)}
+    dest_list.each_with_index do |city, index| 
+      puts "#{index + 1}. #{city}: temperature-- #{city.weather[1]}, chance of precipitation-- #{city.weather[2]}, weather index score-- #{city.weather_score}"}
+    end  
   end
   
   def weather
     #calls weather_scaper to get temperature and precipitation for self.
     w = WeatherScraper.new(self).import
-    puts "The tempurature in #{w[0].name} is #{w[1]} and the chance of rain is #{w[2]}%. "
+    #puts "The tempurature in #{w[0].name} is #{w[1]} and the chance of rain is #{w[2]}%. "
+    w
   end  
 
 end  
