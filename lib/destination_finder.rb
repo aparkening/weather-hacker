@@ -15,7 +15,8 @@ Where are you today?"
   
   def menu
     #manage user navigation through the list.
-    @location.top_destinations
+    puts "Your top destinations are:" 
+    @location.top_destinations.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[1]}, precipitation-- #{city.weather[2]}%, weather index-- #{city.weather_score}"}
     puts "What looks interesting to you?"
     puts "Enter the number of a city on the list or exit to quit."
     index = gets.chomp
