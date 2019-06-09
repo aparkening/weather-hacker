@@ -5,13 +5,9 @@ class DestinationFinder
   
   def call
     puts "Welcome to Weather Hacker! Where are you today?"
-    puts "Enter your current zipcode here:" 
-    @location = Location.new(gets.chomp)
-    #gets zipcode input
-    #if not valid zipcode 
-      #puts "Please enter a valid zipcode."
-      #gets zipcode input
-    #else
+    puts "Enter your current city and state here:" 
+    input - gets.chomp
+    @location = Location.new(input)
      self.menu
   end
   
