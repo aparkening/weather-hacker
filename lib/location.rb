@@ -5,6 +5,7 @@ class Location
   
   attr_accessor :name, :weather, :temperature, :precipitation
 
+  dest_list =[]
   
   def initialize(zipcode)
     @name = zipcode
@@ -14,7 +15,9 @@ class Location
   
     
   def top_destinations
+    #rank destinations by weather_score
     self.list_destinations.each{|destination|destination.weather_score}
+   
   end  
   
   def list_destinations
@@ -22,9 +25,7 @@ class Location
     list = ["Madison", "Traverse", "Louisville"]
     dest_list = list.collect{|city|Destination.new(city,self)}
     puts "Your destinations are:" 
-    dest_list.each_with_index do |city, index| 
-      puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[1]}, precipitation-- #{city.weather[2]}%, weather index-- #{city.weather_score}"
-    end  
+    dest_list.sort_by!{|dest|dest.weather_score}.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[1]}, precipitation-- #{city.weather[2]}%, weather index-- #{city.weather_score}"}
   end
   
   def weather
