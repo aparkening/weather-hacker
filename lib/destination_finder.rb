@@ -19,11 +19,12 @@ Where are you today?"
     puts "What looks interesting to you?"
     puts "Enter the number of a city on the list or exit to quit."
     input = gets.chomp
-    case = input 
-    when == 1 
-      @location.dest_list[0]
+    until input == "exit"
+      @location.dest_list[input- 1]
       #links to Wikipedia page for response.
-    when == exit
+      puts "Do you want to explore more? Enter a city number or type 'exit' to quit."
+      @location.top_destinations
+    end
       puts "Happy travelling!"
   end 
   
