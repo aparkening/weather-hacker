@@ -1,3 +1,4 @@
+require './/bin/environment.rb'
 #CLI Controller
 class DestinationFinder
   
@@ -21,7 +22,7 @@ Where are you today?"
     puts "Enter the number of a city on the list or exit to quit."
     index = gets.chomp
     until index == "exit"
-      puts "#{@location.top_destinations[index.to_i - 1]}"
+      puts "#{@location.top_destinations[index.to_i - 1].name}"
       #links to Wikipedia page for response.
       puts "Do you want to explore more? Enter a city number or type 'exit' to quit."
       @location.top_destinations
