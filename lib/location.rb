@@ -1,4 +1,5 @@
 require_relative './weather.rb'
+#require 'pry'
 class Location 
   
   include Weather

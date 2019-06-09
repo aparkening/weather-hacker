@@ -1,3 +1,4 @@
+#require 'pry'
 class WeatherScraper
   
   attr_accessor :destination, :weather_hash
@@ -11,6 +12,7 @@ class WeatherScraper
   end  
   
   def import
+    #binding.pry
     #assigns temp and precip to destinations.
     @html
   end
