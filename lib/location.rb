@@ -25,9 +25,5 @@ class Location
     #calls weather_scaper to get temperature and precipitation for self.
     w = WeatherScraper.new(self).import
   end  
-  
-  def destination_find_by_index(number)
-    puts "#{dest_list[number - 1]}"
-  end  
 
 end  
