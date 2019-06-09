@@ -18,9 +18,7 @@ class Location
   def top_destinations
     #scrapes www.freemaptools.com for list of destinations within 100 miles of self.
     list = ["Madison", "Traverse", "Louisville"]
-    dest_list = list.collect{|city|Destination.new(city,self)}
-    puts "Your top destinations are:" 
-    dest_list.sort_by!{|dest|dest.weather_score}.reverse!.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[1]}, precipitation-- #{city.weather[2]}%, weather index-- #{city.weather_score}"}
+    dest_list = list.collect{|city|Destination.new(city,self)}.sort_by{|dest|dest.weather_score}.reverse!
   end
   
   def weather
