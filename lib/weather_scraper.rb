@@ -1,19 +1,18 @@
 class WeatherScraper
   
   attr_accessor :destination, :weather_hash
-  
-  weather_hash = {}
+
   @html = []
   
   def initialize(destination)
     @destination = destination
     #scrapes Accuweather for temp and precipitation for destination. 
-    @html = [@destination,75,20]
+    @html = [@destination,@destination.name.length*10,@destination.name.length*1.5]
   end  
   
   def import
     #assigns temp and precip to destinations.
-    weather_hash = @html
+    @html
   end
 
 end  
