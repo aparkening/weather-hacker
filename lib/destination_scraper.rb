@@ -4,7 +4,7 @@ require 'open-uri'
 class DestinationScraper
   url = "https://www.travelmath.com/cities-near/"
   
-  def self.scrape_map(location)
+  def self.scrape_map
     city_link_array = []
     city_array =[]
     #binding.pry
@@ -28,7 +28,7 @@ class DestinationScraper
       #binding.pry
     end  
     city_array = city_array[0..9]
-    binding.pry
+    #binding.pry
   end  
   
 end  
