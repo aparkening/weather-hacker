@@ -5,3 +5,4 @@ require './/lib/weather_scraper.rb'
 require './/lib/weather.rb'
 
 require 'nokogiri'
+require 'pry'

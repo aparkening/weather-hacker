@@ -1,7 +1,6 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "weather/hacker/version"
+require "weather_hacker"
 
 Gem::Specification.new do |spec|
   spec.name          = "weather-hacker"
@@ -10,8 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'dirmeyer@gmail.com'"]
 
   spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = https://github.com/JenDirmeyer/weather-hacker
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -38,4 +36,15 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
+  
+  PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hashie
+  octokit 
+  pry
+  rspec
+  sinatra 
+
 end
