@@ -1,9 +1,10 @@
-#require 'pry'
+require 'pry'
+require 'open-uri'
+
 class WeatherScraper
   
-  attr_accessor :destination, :weather_hash
-
-  @html = []
+  def self.scrape_weather
+  end
   
   def initialize(destination)
     @destination = destination

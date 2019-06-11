@@ -11,6 +11,8 @@ Where are you today?"
     puts "Enter your current city and state here:" 
     input = gets.chomp
     @location = Location.new(input)
+    @location.weather
+    
      self.menu
   end
   
