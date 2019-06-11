@@ -14,9 +14,9 @@ module Weather
   end  
   
   def weather_message
-    w = self.weather
+    #w = self.weather
     #binding.pry
-    puts "The tempurature in #{w[0].name} is #{w[1]} and the chance of rain is #{w[2]}%. "
+    #puts "The tempurature in #{w[0].name} is #{w[1]} and the chance of rain is #{w[2]}%. "
   end  
   
   

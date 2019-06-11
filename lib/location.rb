@@ -9,6 +9,7 @@ class Location
 
   def initialize(zipcode)
     @name = zipcode
+    DestinationScraper.scrape_map(self)
   end  
   
   def top_destinations
@@ -17,10 +18,10 @@ class Location
     dest_list = list.collect{|city|Destination.new(city,self)}.sort_by{|dest|dest.weather_score}.reverse!
   end
   
-  #def weather
+  def weather
     #calls weather_scaper to get temperature and precipitation for self.
-    #w = WeatherScraper.new(self).import
+    w = WeatherScraper.new(self).import
     #binding.pry
-  #end  
+  end  
 
 end  
