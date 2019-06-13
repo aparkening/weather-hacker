@@ -20,7 +20,7 @@ class Location
   
   def weather
     #calls weather_scaper to get temperature and precipitation for self.
-    w = WeatherScraper.new(self).import
+    w = WeatherScraper.scrape_weather
     #binding.pry
   end  
 

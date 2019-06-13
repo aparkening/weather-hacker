@@ -14,11 +14,12 @@ class Destination
   
   def weather
     #calls weather_scaper to get temperature and precipitation for self.
-    w = WeatherScraper.new(self).import
+    w = WeatherScraper.scrape_weather
   end  
   
   def weather_score 
     #creates a weather index score using temperature and precipitation from #weather.
-    score = self.weather[1] - self.weather[2]
+    score = self.weather[0].to_i/2
+    binding.pry
   end  
 end  
