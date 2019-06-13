@@ -8,6 +8,14 @@ class WeatherScraper
   
   def weather_location(location)
     mechanize = Mechanize.new
+    page = mechnize.get("https://www.accuweather.com/")
+    form = page.forms.first 
+    form['q'] = '#{location}'
+    binding.pry
+    page = form.submit
+    binding.pry
+    page.search()
+    
   end  
     
   def self.scrape_weather
