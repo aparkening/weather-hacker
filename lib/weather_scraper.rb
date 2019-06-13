@@ -6,9 +6,10 @@ class WeatherScraper
   
   weather_array = []
   
-  def weather_location(location)
+  def self.weather_location(location)
     mechanize = Mechanize.new
-    page = mechnize.get("https://www.accuweather.com/")
+    page = mechnize.get("https://weather.com/")
+    binding.pry
     form = page.forms.first 
     form['q'] = '#{location}'
     binding.pry
@@ -18,8 +19,9 @@ class WeatherScraper
     
   end  
     
-  def self.scrape_weather
+  def self.scrape_weather(location)
     weather_array = []
+    url = weather_location(location)
     url = "https://www.accuweather.com/en/us/grand-rapids-mi/49503/weather-forecast/329374"
     html = Nokogiri::HTML(open(url))
     @temp = html.css(".grad-3 div.hi").text

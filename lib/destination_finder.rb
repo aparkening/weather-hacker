@@ -1,4 +1,5 @@
 require './/bin/environment.rb'
+
 #CLI Controller
 class DestinationFinder
   
