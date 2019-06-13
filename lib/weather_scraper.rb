@@ -1,10 +1,15 @@
 require 'pry'
 require 'open-uri'
+require 'mechanize'
 
 class WeatherScraper
   
   weather_array = []
   
+  def weather_location(location)
+    mechanize = Mechanize.new
+  end  
+    
   def self.scrape_weather
     weather_array = []
     url = "https://www.accuweather.com/en/us/grand-rapids-mi/49503/weather-forecast/329374"

@@ -20,6 +20,6 @@ class Destination
   def weather_score 
     #creates a weather index score using temperature and precipitation from #weather.
     score = self.weather[0].to_i/2
-    binding.pry
+    #binding.pry
   end  
 end  

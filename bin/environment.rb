@@ -7,3 +7,4 @@ require './/lib/destination_scraper.rb'
 
 require 'nokogiri'
 require 'pry'
+require 'mechanize'
