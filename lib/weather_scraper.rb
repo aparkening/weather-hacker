@@ -3,21 +3,16 @@ require 'open-uri'
 
 class WeatherScraper
   
+  weather_array = []
+  
   def self.scrape_weather
     url = "https://www.accuweather.com/en/us/grand-rapids-mi/49503/weather-forecast/329374"
     html = Nokogiri::HTML(open(url))
-  end
-  
-  def initialize(destination)
-    @destination = destination
-    #scrapes Accuweather for temp and precipitation for destination. 
-    @html = [@destination,@destination.name.length*10,@destination.name.length*1.5]
-  end  
-  
-  def import
-    #binding.pry
-    #assigns temp and precip to destinations.
-    @html
+    @temp = html.css(".grad-3 div.hi")
+    weather_array << @temp
+    @cond = html.css(".grad-3 div.cond")
+    weather_array << @cond
+    weather_array
   end
 
 end  
