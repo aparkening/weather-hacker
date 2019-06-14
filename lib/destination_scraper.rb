@@ -41,7 +41,11 @@ class DestinationScraper
       #binding.pry
     end  
     city_array = city_array[0..4]
-    #binding.pry
+    city_array.each do |city|
+      dest = Destination.new(city)
+      dest.location = 
+    end  
   end  
+
   
 end  
