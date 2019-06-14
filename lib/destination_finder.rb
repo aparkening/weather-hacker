@@ -12,7 +12,7 @@ Where are you today?"
     puts "Enter your current city and state here:" 
     input = gets.chomp
     @location = Location.new(input)
-    puts "Expect #{@location.weather[1]} in #{@location.name} with a temperature of #{@location.weather[0]} tomorrow."
+    puts "The temperature will be #{@location.weather[0]} tomorrow in #{@location.name} with a #{@location.weather[1]}% chance of precipitation."
     self.menu
   end
   
@@ -30,7 +30,7 @@ Where are you today?"
       @location.top_destinations
       index = gets.chomp
     end
-      puts "Happy traveling!"
+      puts "Happy Traveling!"
   end 
   
 end  
