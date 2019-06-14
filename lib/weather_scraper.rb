@@ -8,7 +8,7 @@ class WeatherScraper
   
   def self.weather_location(location)
     mechanize = Mechanize.new
-    page = mechnize.get("https://weather.com/")
+    page = mechanize.get("https://weather.com/")
     binding.pry
     form = page.forms.first 
     form['q'] = '#{location}'
