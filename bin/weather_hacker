@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'bundler'
+
 #bundle install
 
 require_relative './environment.rb'

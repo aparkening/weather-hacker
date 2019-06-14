@@ -5,6 +5,10 @@ require './/lib/weather_scraper.rb'
 require './/lib/weather.rb'
 require './/lib/destination_scraper.rb'
 
+require 'bundler'
+
+#bundle install 
+
 require 'nokogiri'
 require 'pry'
 require 'mechanize'

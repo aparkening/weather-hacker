@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-#gem 'bundle'
+gem 'bundler'
 gem 'pry'
 gem 'nokogiri'
 gem 'mechanize'
