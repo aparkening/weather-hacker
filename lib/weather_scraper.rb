@@ -23,10 +23,11 @@ class WeatherScraper
     #binding.pry
     #url = "https://www.accuweather.com/en/us/grand-rapids-mi/49503/weather-forecast/329374"
     html = Nokogiri::HTML(open(url))
+    #binding.pry
+    @temp = html.css("div.forecast-box-header .primary-temp .wu-value")[1].text.to_i
     binding.pry
-    @temp = html.css("div.forecast-box-header .primary-temp .wu-value")[1].texthtml.css("div.forecast-box-header span.to").text.to_i
     weather_array << @temp
-    @cond = html.css(".grad-3 div.cond").text
+    @precip_percent = html.css(".hook")[0].text[0]
     weather_array << @cond
     weather_array
     #binding.pry
