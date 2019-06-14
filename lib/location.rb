@@ -4,8 +4,7 @@ class Location
   
   include Weather
   
-  attr_accessor :name, :weather, :temperature, :precipitation
-  attr_reader :dest_list
+  attr_accessor :name
 
   def initialize(zipcode)
     @name = zipcode
@@ -17,11 +16,5 @@ class Location
     #binding.pry
     dest_list = list.collect{|city|Destination.new(city,self)}.sort_by{|dest|dest.weather_score}.reverse!
   end
-  
-  def weather
-    #calls weather_scaper to get temperature and precipitation for self.
-    w = WeatherScraper.scrape_weather(self)
-    #binding.pry
-  end  
 
 end  

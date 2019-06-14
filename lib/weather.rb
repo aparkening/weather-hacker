@@ -2,15 +2,12 @@
 module Weather
   
   def weather
-    #calls weather_scaper to get temperature and precipitation for self.
-    binding.pry
-    w = WeatherScraper.new(self).import
-    binding.pry
+    WeatherScraper.scrape_weather(self)
   end  
   
   def weather_score 
     #creates a weather index score using temperature and precipitation from #weather.
-    score = self.weather[1] - self.weather[2]
+    score = self.weather[0].to_i/2
   end  
   
   def weather_message
