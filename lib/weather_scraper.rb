@@ -14,17 +14,17 @@ class WeatherScraper
     form['query'] = "#{location.name}"
     #binding.pry
     page = form.submit
-    #binding.pry
-    page.search()
-    
+    page.uri
   end  
     
   def self.scrape_weather(location)
     weather_array = []
-    url = weather_location(location)
-    url = "https://www.accuweather.com/en/us/grand-rapids-mi/49503/weather-forecast/329374"
+    url = "#{self.weather_location(location)}"
+    #binding.pry
+    #url = "https://www.accuweather.com/en/us/grand-rapids-mi/49503/weather-forecast/329374"
     html = Nokogiri::HTML(open(url))
-    @temp = html.css(".grad-3 div.hi").text
+    binding.pry
+    @temp = html.css("div.forecast-box-header .primary-temp .wu-value")[1].texthtml.css("div.forecast-box-header span.to").text.to_i
     weather_array << @temp
     @cond = html.css(".grad-3 div.cond").text
     weather_array << @cond
