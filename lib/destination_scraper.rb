@@ -36,10 +36,11 @@ class DestinationScraper
       end 
     end  
     city_array = city_array.collect do |city|
-      city.match(/[A-Z][a-z]+,\+[A-Z]+/).to_s.gsub(/\+/," ")
+      city = city.gsub(/\/[a-z]+\//, "")
+      city = city.gsub("+", " ")
       #binding.pry
     end  
-    city_array = city_array[0..9]
+    city_array = city_array[0..4]
     #binding.pry
   end  
   
