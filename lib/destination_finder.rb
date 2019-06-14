@@ -28,7 +28,7 @@ Where are you today?"
       puts "#{list[index.to_i - 1].name}"
       #links to Wikipedia page for response.
       puts "Do you want to explore more? Enter a city number or type 'exit' to quit."
-      @location.top_destinations
+      list
       index = gets.chomp
     end
       puts "Happy Traveling!"
