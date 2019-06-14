@@ -7,30 +7,22 @@ class DestinationScraper
     mechanize = Mechanize.new
     page = mechanize.get("https://www.travelmath.com/")
     link = page.link_with(text:"Cities")
-    #binding.pry
     page = link.click
     link = page.link_with(text: "major cities")
     page = link.click
     form = page.form('calculator')
     form.from = "#{location.name}"
     form.to = "#{location.name}"
-    #binding.pry
     page = form.submit
-    binding.pry
     page.uri
     
   end  
   
-  url = "https://www.travelmath.com/cities-near/"
-  
   def self.scrape_map(location)
     city_link_array = []
     city_array =[]
-    #binding.pry
-    #url = "https://.www.travelmath.com/cities-near/#{location.name.split(" ")[0]}+#{location.name.split(" ")[1]}+#{location.name.split(" ")[2]}"
-    #binding.pry
     url = self.map(location)
-    url = "https://www.travelmath.com/cities-near/Grand+Rapids,+MI"
+    #url = "https://www.travelmath.com/cities-near/Grand+Rapids,+MI"
     html = Nokogiri::HTML(open(url))
     #binding.pry
     html.css("ul.related li a").each do |city|
