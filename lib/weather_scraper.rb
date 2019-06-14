@@ -25,12 +25,12 @@ class WeatherScraper
     html = Nokogiri::HTML(open(url))
     #binding.pry
     @temp = html.css("div.forecast-box-header .primary-temp .wu-value")[1].text.to_i
-    binding.pry
-    weather_array << @temp
-    @precip_percent = html.css(".hook")[0].text[0]
-    weather_array << @cond
-    weather_array
     #binding.pry
+    weather_array << @temp
+    @precip_percent = html.css(".hook")[0].text[0..1].to_i
+    weather_array << @precip_percent
+    weather_array
+    binding.pry
   end
 
 end  
