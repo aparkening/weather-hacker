@@ -19,12 +19,13 @@ Where are you today?"
   def menu
     #manage user navigation through the list.
     puts "Your top destinations are:" 
-    @location.top_destinations.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[0]}, precipitation-- #{city.weather[1]}."}
+    list = @location.top_destinations
+    list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[0]}, precipitation-- #{city.weather[1]}%."}
     puts "What looks interesting to you?"
-    puts "Enter the number of a city on the list or exit to quit."
+    puts "Enter the number of a city on the list or typy 'exit' to quit."
     index = gets.chomp
     until index == "exit"
-      puts "#{@location.top_destinations[index.to_i - 1].name}"
+      puts "#{list[index.to_i - 1].name}"
       #links to Wikipedia page for response.
       puts "Do you want to explore more? Enter a city number or type 'exit' to quit."
       @location.top_destinations
