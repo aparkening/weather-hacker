@@ -4,7 +4,7 @@ require 'mechanize'
 
 class WeatherScraper
   
-  weather_array = []
+  @weather_array = []
   
   def self.weather_location(location)
     mechanize = Mechanize.new
@@ -16,14 +16,13 @@ class WeatherScraper
   end  
     
   def self.scrape_weather(location)
-    weather_array = []
     url = "#{self.weather_location(location)}"
     html = Nokogiri::HTML(open(url))
     @temp = html.css("div.forecast-box-header .primary-temp .wu-value")[1].text.to_i
-    weather_array << @temp
+    @weather_array << @temp
     @precip_percent = html.css(".hook")[1].text[0..1].to_i
-    weather_array << @precip_percent
-    weather_array
+    @weather_array << @precip_percent
+    @weather_array
   end
 
 end  

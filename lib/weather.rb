@@ -1,13 +1,15 @@
 
 module Weather
   
+  #weather = WeatherScraper.scrape_weather(self)
+  
   def weather
     WeatherScraper.scrape_weather(self)
   end  
   
   def weather_score 
     #creates a weather index score using temperature and precipitation from #weather.
-    score = self.weather[0].to_i/2
+    score = self.weather[0] - self.weather[1]
   end  
   
   def weather_message
