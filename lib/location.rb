@@ -1,20 +1,19 @@
 require_relative './weather.rb'
 require 'pry'
 class Location 
-  
-  include Weather
-  
-  attr_accessor :name
+
+  attr_accessor :name, :weather
 
   def initialize(city_state)
     @name = city_state
-    #location.weather = Weather.new(self)
+    self.weather = Weather.new(self)
+    #binding.pry
   end  
   
   def top_destinations
     #scrapes www.travelmath.com for list of destinations within 300 miles of self.
     list = DestinationScraper.scrape_map(self)
-    dest_list = list.collect{|city|Destination.new(city,self)}.sort_by{|dest|dest.weather_score}.reverse!
+    dest_list = list.collect{|city|Destination.new(city,self)}.sort_by{|dest|dest.weather.weather_score}.reverse!
   end
 
 end  

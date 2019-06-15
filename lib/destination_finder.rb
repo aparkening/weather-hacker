@@ -12,7 +12,7 @@ Where are you today?"
     puts "Enter your current city and state here:" 
     input = gets.chomp
     @location = Location.new(input)
-    puts "The temperature will be #{@location.weather[0]} tomorrow in #{@location.name} with a #{@location.weather[1]}% chance of precipitation."
+    puts "The temperature will be #{@location.weather.temp} tomorrow in #{@location.name} with a #{@location.weather.precip}% chance of precipitation."
     self.menu
   end
   
@@ -20,7 +20,7 @@ Where are you today?"
     #manage user navigation through the list.
     puts "Your top destinations are:" 
     list = @location.top_destinations
-    list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[0]}, precipitation-- #{city.weather[1]}%."}
+    list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather.temp}, precipitation-- #{city.weather.precip}%."}
     puts "What looks interesting to you?"
     puts "Enter the number of a city on the list or typy 'exit' to quit."
     index = gets.chomp
