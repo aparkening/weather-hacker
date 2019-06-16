@@ -7,6 +7,11 @@ class Location
   def initialize(city_state)
     @name = city_state
     self.weather = Weather.new(self)
+    destinations []
+  end  
+  
+  def add_new_destinations(array)
+    array.each {|place| destinations << Destination.new(place,self)}
   end  
   
   def top_destinations
