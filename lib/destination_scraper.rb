@@ -22,28 +22,20 @@ class DestinationScraper
     city_link_array = []
     city_array =[]
     url = self.map(location)
-    #url = "https://www.travelmath.com/cities-near/Grand+Rapids,+MI"
     html = Nokogiri::HTML(open(url))
-    #binding.pry
     html.css("ul.related li a").each do |city|
       city_link_array<< city.attribute("href").value
-      #binding.pry
     end  
     city_link_array.each_with_index do |a,i|
       if i%2 != 0
         city_array << a
-        #binding.pry
       end 
     end  
     city_array = city_array.collect do |city|
       city = city.gsub(/\/[a-z]+\//, "")
       city = city.gsub("+", " ")
-      #binding.pry
     end  
     city_array = city_array[0..4]
-    city_array.each do |city|
-
-    end  
   end  
 
 

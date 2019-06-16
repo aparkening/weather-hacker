@@ -1,8 +1,11 @@
 require 'pry'
 require 'open-uri'
 require 'mechanize'
+require_relative './weather.rb'
 
 class WeatherScraper
+  
+  attr_accessor :temp, :weather, :precip
   
   def self.weather_location(location)
     mechanize = Mechanize.new
@@ -13,15 +16,15 @@ class WeatherScraper
     page.uri
   end  
     
-  def self.scrape_weather(location)
-    weather_array =[]
-    url = "#{self.weather_location(location)}"
+  def self.scrape_weather(place)
+    weather_hash ={}
+    url = "#{self.weather_location(place)}"
     html = Nokogiri::HTML(open(url))
-    @temp = html.css("div.forecast-box-header .primary-temp .wu-value")[1].text.to_i
-    weather_array << @temp
-    @precip_percent = html.css(".hook")[1].text[0..1].to_i
-    weather_array << @precip_percent
-    weather_array
+    weather_hash[:temp] = html.css("div.forecast-box-header .primary-temp .wu-value")[1].text.to_i
+    weather_hash[:precip] = html.css(".hook")[1].text[0..1].to_i
+    weather_hash
   end
+  
+  
 
 end  
