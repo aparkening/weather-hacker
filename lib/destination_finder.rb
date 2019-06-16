@@ -28,7 +28,7 @@ Where are you today?"
       puts "#{list[index.to_i - 1].name}"
       #links to Wikipedia page for response.
       puts "Do you want to explore more? Enter a city number or type 'exit' to quit."
-      list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather[0]}, precipitation-- #{city.weather[1]}%."}
+      list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather.temp}, precipitation-- #{city.weather.precip}%."}
       index = gets.chomp
     end
       puts "Happy Traveling!"
