@@ -7,17 +7,16 @@ class Location
   def initialize(city_state)
     @name = city_state
     self.weather = Weather.new(self)
-    destinations []
+    @destinations = []
   end  
   
   def add_new_destinations(array)
-    array.each {|place| destinations << Destination.new(place,self)}
+    array.each {|place| @destinations << Destination.new(place,self)}
+    @destinations
   end  
   
-  def top_destinations
-    #scrapes www.travelmath.com for list of destinations within 300 miles of self.
-    list = DestinationScraper.scrape_map(self)
-    dest_list = list.collect{|city|Destination.new(city,self)}.sort_by{|dest|dest.weather.weather_score}.reverse!
+  def top_destinations_score
+    dest_list = @destinations.sort_by{|dest|dest.weather.weather_score}.reverse!
   end
 
 end  
