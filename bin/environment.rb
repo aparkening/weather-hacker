@@ -4,6 +4,7 @@ require './/lib/destination.rb'
 require './/lib/weather_scraper.rb'
 require './/lib/weather.rb'
 require './/lib/destination_scraper.rb'
+require './/lib/wiki_scraper.rb'
 
 require 'bundler'
 

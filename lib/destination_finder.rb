@@ -24,6 +24,8 @@ Where are you today?"
     puts "What looks interesting to you?"
     puts "Enter the number of a city on the list or typy 'exit' to quit."
     index = gets.chomp
+    #binding.pry
+    list[index.to_i - 1].learn_more
     until index == "exit"
       puts "#{list[index.to_i - 1].name}"
       #links to Wikipedia page for response.

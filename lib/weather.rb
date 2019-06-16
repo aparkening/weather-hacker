@@ -16,5 +16,4 @@ class Weather
     score = self.temp - self.precip
   end  
   
-  
 end  
