@@ -7,12 +7,11 @@ class DestinationFinder
   
   def call
     puts "Welcome to Weather Hacker!
-Where are you today?"
-    puts ""
-    puts "Enter your current city and state here:" 
+Where are you today? Enter your current city and state here:" 
     input = gets.chomp
     @location = Location.new(input)
     puts "The temperature will be #{@location.weather.temp} tomorrow in #{@location.name} with a #{@location.weather.precip}% chance of precipitation."
+    puts ""
     self.menu
   end
   
@@ -31,14 +30,14 @@ Where are you today?"
     puts "What looks interesting to you?"
     puts "Enter the number of a city on the list or type 'exit' to quit."
     index = gets.chomp
-    #binding.pry
-    @top_dest_list[index.to_i - 1].learn_more
     until index == "exit"
       #binding.pry
+      puts "#{@top_dest_list[index.to_i - 1].name}, good choice!"
       puts "To explore #{@top_dest_list[index.to_i - 1].name} Visit #{WikiScraper.place_url(@top_dest_list[index.to_i - 1]).to_s.gsub("#<URI::HTTPS","")}" 
       puts ""
       puts "#{WikiScraper.scrape(@top_dest_list[index.to_i - 1])}..."
       #links to Wikipedia page for response
+      puts ""
       puts "Do you want to explore more? Enter a city number or type 'exit' to quit."
       @top_dest_list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather.temp}, precipitation-- #{city.weather.precip}%."}
       index = gets.chomp

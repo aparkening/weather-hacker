@@ -9,5 +9,5 @@ class Destination
     self.location = location
     self.weather = Weather.new(self)
   end 
-
+ 
 end  
