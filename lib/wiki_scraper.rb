@@ -4,12 +4,11 @@ require 'mechanize'
 
 class WikiScraper
   
-  attr_accessor 
+  attr_accessor :url
   
   def self.place_url(place)
     mechanize = Mechanize.new
     page = mechanize.get("https://www.wikipedia.org/")
-   # binding.pry
     form = page.forms.first 
     form['search'] = "#{place.name}"
     page = form.submit
@@ -17,10 +16,9 @@ class WikiScraper
   end  
     
   def self.scrape(place)
-    url = "#{self.place_url(place)}"
-    html = Nokogiri::HTML(open(url))
-    binding.pry
-    html.css("div#mw-content-text p").text[0..500]
+    @url = "#{self.place_url(place)}"
+    html = Nokogiri::HTML(open(@url))
+    html.css("div#mw-content-text p").text[0..500].gsub("\n","")
   end
   
 end  
