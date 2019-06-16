@@ -19,6 +19,8 @@ class WikiScraper
   def self.scrape(place)
     url = "#{self.place_url(place)}"
     html = Nokogiri::HTML(open(url))
+    binding.pry
+    html.css("div#mw-content-text p").text[0..500]
   end
   
 end  
