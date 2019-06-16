@@ -3,7 +3,7 @@ require './/bin/environment.rb'
 #CLI Controller
 class DestinationFinder
   
-  attr_accessor :location
+  attr_accessor :location, :top_dest_list
   
   def call
     puts "Welcome to Weather Hacker!
@@ -16,11 +16,16 @@ Where are you today?"
     self.menu
   end
   
+  def list_top_dest
+    places = DestinationScraper.scrape_map(@location)
+    @location.add_new_destinations(places)
+    @top_dest_list = @location.top_destinations_score
+  end  
+  
   def menu
     #manage user navigation through the list.
     puts "Your top destinations are:" 
-    list = @location.top_destinations
-    list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather.temp}, precipitation-- #{city.weather.precip}%."}
+    @top_dest_list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather.temp}, precipitation-- #{city.weather.precip}%."}
     puts ""
     puts "What looks interesting to you?"
     puts "Enter the number of a city on the list or type 'exit' to quit."
