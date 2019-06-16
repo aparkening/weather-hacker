@@ -29,7 +29,7 @@ Where are you today?"
     list[index.to_i - 1].learn_more
     until index == "exit"
       #binding.pry
-      puts "#{list[index.to_i - 1].name} Visit #{WikiScraper.place_url(list[index.to_i - 1]).to_s.gsub("#<URI::HTTPS","")}" 
+      puts "To explore #{list[index.to_i - 1].name} Visit #{WikiScraper.place_url(list[index.to_i - 1]).to_s.gsub("#<URI::HTTPS","")}" 
       puts ""
       puts "#{WikiScraper.scrape(list[index.to_i - 1])}..."
       #links to Wikipedia page for response.
