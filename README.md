@@ -1,10 +1,7 @@
 
 
-# Weather::Hacker
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/weather/hacker`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+# Weather-Hacker
+Weather-Hacker is a CLI interface that lets users find potential travel destinations and rank them according to their weather forecasts. 
 
 ## Installation
 
@@ -23,8 +20,8 @@ Or install it yourself as:
     $ gem install weather-hacker
 
 ## Usage
+Use this gem to get information from users about current location and generate a list of potential travel destinations and their weather.
 
-TODO: Write usage instructions here
 
 ## Development
 
