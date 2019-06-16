@@ -2,7 +2,7 @@ require_relative './weather.rb'
 require 'pry'
 class Location 
 
-  attr_accessor :name, :weather, :temp
+  attr_accessor :name, :weather, :destinations
 
   def initialize(city_state)
     @name = city_state
