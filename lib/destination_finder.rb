@@ -21,16 +21,21 @@ Where are you today?"
     puts "Your top destinations are:" 
     list = @location.top_destinations
     list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather.temp}, precipitation-- #{city.weather.precip}%."}
+    puts ""
     puts "What looks interesting to you?"
     puts "Enter the number of a city on the list or typy 'exit' to quit."
     index = gets.chomp
     #binding.pry
     list[index.to_i - 1].learn_more
     until index == "exit"
-      binding.pry
-      puts #{list[index.to_i - 1].name} "Visit #{WikiScraper.place_url(list[index.to_i - 1]).to_s.gsub("#<URI::HTTPS","")}" 
+      #binding.pry
+      puts "#{list[index.to_i - 1].name} Visit #{WikiScraper.place_url(list[index.to_i - 1]).to_s.gsub("#<URI::HTTPS","")}" 
+      puts ""
       puts "#{WikiScraper.scrape(list[index.to_i - 1])}..."
       #links to Wikipedia page for response.
+      puts ""
+      puts ""
+      puts ""
       puts "Do you want to explore more? Enter a city number or type 'exit' to quit."
       list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather.temp}, precipitation-- #{city.weather.precip}%."}
       index = gets.chomp

@@ -8,7 +8,7 @@ class DestinationScraper
     page = mechanize.get("https://www.travelmath.com/")
     link = page.link_with(text:"Cities")
     page = link.click
-    link = page.link_with(text: "major cities")
+    link = page.link_with(text: "Cities")
     page = link.click
     form = page.form('calculator')
     form.from = "#{location.name}"
