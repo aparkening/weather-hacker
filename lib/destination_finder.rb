@@ -11,6 +11,7 @@ Where are you today? Enter your current city and state here:"
     input = gets.chomp
     until input.match(/[A-Za-z]+,\s\[A-Za-z]+/)
       puts "Please enter a valid City, State."
+      input = gets.chomp
     end  
     @location = Location.new(input)
     puts "The temperature will be #{@location.weather.temp} tomorrow in #{@location.name} with a #{@location.weather.precip}% chance of precipitation."
