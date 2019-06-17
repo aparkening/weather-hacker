@@ -31,7 +31,10 @@ Where are you today? Enter your current city and state here:"
     puts "Enter the number of a city on the list or type 'exit' to quit."
     index = gets.chomp
     until index == "exit"
-      if index.to_i > 0 && index.to_i <= @top_dest_list.length
+      if index.to_i == 0 || index.to_i > @top_dest_list.length 
+        puts "Please enter a number between 1 and #{@top_dest_list.length}."
+        index = gets.chomp
+      else  
         puts "#{@top_dest_list[index.to_i - 1].name}, good choice!"
         puts "To explore #{@top_dest_list[index.to_i - 1].name} Visit #{WikiScraper.place_url(@top_dest_list[index.to_i - 1]).to_s.gsub("#<URI::HTTPS","")}" 
         puts ""
@@ -40,9 +43,6 @@ Where are you today? Enter your current city and state here:"
         puts ""
         puts "Do you want to explore more? Enter a city number or type 'exit' to quit."
         @top_dest_list.each_with_index{|city, index| puts "#{index + 1}. #{city.name}: temperature-- #{city.weather.temp}, precipitation-- #{city.weather.precip}%."}
-        index = gets.chomp
-      else
-        "Please enter a number between 1 and #{@top_dest_list.length}."
         index = gets.chomp
       end  
     end
