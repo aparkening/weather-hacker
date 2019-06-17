@@ -51,6 +51,7 @@ Where are you today? Enter your current city and state here:"
       end  
     end
       puts "Happy Traveling!"
+      return
   end 
   
 end  
