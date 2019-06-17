@@ -21,25 +21,27 @@ class WeatherScraper
     url = "#{self.weather_url(place)}"
     html = Nokogiri::HTML(open(url))
     @temp_code = html.css("div.forecast-box-header .primary-temp .wu-value")
-    while @temp_code == nil 
-      i = 0
-      temp_code = html.css("div.forecast-box-header .primary-temp .wu-value")
-      i += 1 
-      if i > 10 
+    #binding.pry
+     i = 0
+    while @temp_code.text == ""
+    #binding.pry
+      html = Nokogiri::HTML(open(url))
+      @temp_code = html.css("div.forecast-box-header .primary-temp .wu-value")
+      i = i + 1 
+      if i > 10
         puts "We are experiencing difficulties. Please try again later."
-        break
+        puts ""
+        puts ""
+        puts ""
+        puts "-------------------------------------"
+        DestinationFinder.new.call
       end  
     end  
       weather_hash[:temp] = @temp_code[1].text.to_i
     #binding.pry
     
     weather_hash[:precip] = html.css(".hook")[1].text[0..1].to_i
-      while  weather_hash[:temp]== nil 
-          weather_hash[:temp] = html.css("div.forecast-box-header .primary-temp .wu-value")[1].text.to_i
-      end    
-      while weather_hash[:precip] == nil 
-         weather_hash[:precip] = html.css(".hook")[1].text[0..1].to_i 
-      end    
+   
       weather_hash
   end
 
