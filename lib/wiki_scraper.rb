@@ -9,6 +9,7 @@ class WikiScraper
   def self.place_url(place)
     mechanize = Mechanize.new
     page = mechanize.get("https://www.wikipedia.org/")
+    #binding.pry
     form = page.forms.first 
     form['search'] = "#{place.name}"
     page = form.submit
@@ -17,6 +18,7 @@ class WikiScraper
     
   def self.scrape(place)
     @url = "#{self.place_url(place)}"
+    #system "open #{@url}"
     html = Nokogiri::HTML(open(@url))
     html.css("div#mw-content-text p").text[0..500].gsub("\n","")
   end
