@@ -1,5 +1,3 @@
-require 'pry'
-require 'open-uri'
 
 class DestinationScraper
   
@@ -19,11 +17,16 @@ class DestinationScraper
   end  
   
   def self.scrape_map(location)
+    @code = []
     city_link_array = []
     city_array =[]
     url = self.map(location)
     html = Nokogiri::HTML(open(url))
-    html.css("ul.related li a").each do |city|
+    @code = html.css("ul.related li a") 
+    while @code[0].attribute("href").value == nil 
+      @code = html.css("ul.related li a") 
+    end  
+    @code.each do |city|
       city_link_array<< city.attribute("href").value
     end  
     city_link_array.each_with_index do |a,i|

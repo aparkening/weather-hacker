@@ -22,7 +22,13 @@ class WeatherScraper
     html = Nokogiri::HTML(open(url))
     weather_hash[:temp] = html.css("div.forecast-box-header .primary-temp .wu-value")[1].text.to_i
     weather_hash[:precip] = html.css(".hook")[1].text[0..1].to_i
-    weather_hash
+      while  weather_hash[:temp]== nil 
+          weather_hash[:temp] = html.css("div.forecast-box-header .primary-temp .wu-value")[1].text.to_i
+      end    
+      while weather_hash[:precip] == nil 
+         weather_hash[:precip] = html.css(".hook")[1].text[0..1].to_i 
+      end    
+      weather_hash
   end
 
 end  
