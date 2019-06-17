@@ -5,7 +5,7 @@ require_relative './weather.rb'
 
 class WeatherScraper
   
-  attr_accessor :temp, :weather, :precip, :temp_code
+  attr_accessor :temp, :weather, :precip, :temp_code, :precip_code
   
   def self.weather_url(place)
     mechanize = Mechanize.new
@@ -38,11 +38,26 @@ class WeatherScraper
       end  
     end  
       weather_hash[:temp] = @temp_code[1].text.to_i
+      
+   @precip_code = html.css(".hook")
+    while @precip_code.text == ""
     #binding.pry
+      html = Nokogiri::HTML(open(url))
+      @precip_code = html.css(".hook")
+      i = i + 1 
+      if i > 10
+        puts "We are experiencing difficulties. Please try again later."
+        puts ""
+        puts ""
+        puts ""
+        puts "-------------------------------------"
+        DestinationFinder.new.call
+      end  
+    end 
     
-    weather_hash[:precip] = html.css(".hook")[1].text[0..1].to_i
+    weather_hash[:precip] = @precip_code.text[0..1].to_i
    
-      weather_hash
+    weather_hash
   end
 
 end  
