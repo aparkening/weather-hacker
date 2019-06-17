@@ -23,8 +23,20 @@ class DestinationScraper
     url = self.map(location)
     html = Nokogiri::HTML(open(url))
     @code = html.css("ul.related li a") 
-    while @code[0].attribute("href").value == nil 
+    #binding.pry
+    i = 0 
+    while @code[0] == nil 
+      #binding.pry
       @code = html.css("ul.related li a") 
+      i += 1 
+      if i > 10 
+        puts "We are experiencing difficulties. Please try again later."
+        puts ""
+        puts ""
+        puts ""
+        puts "-------------------------------------"
+        DestinationFinder.new.call
+      end  
     end  
     @code.each do |city|
       city_link_array<< city.attribute("href").value
