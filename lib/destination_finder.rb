@@ -35,10 +35,10 @@ Where are you today? Enter your current city and state here:"
     puts "Enter the number of a city on the list or type 'exit' to quit."
     index = gets.chomp
     until index == "exit"
-      if index.to_i == 0 || index.to_i > @top_dest_list.length 
+      if index != "exit" && (index.to_i == 0 || index.to_i > @top_dest_list.length) 
         puts "Please enter a number between 1 and #{@top_dest_list.length}."
         index = gets.chomp
-      else  
+      elsif index != "exit"
         puts "#{@top_dest_list[index.to_i - 1].name}, good choice!"
         puts "To explore #{@top_dest_list[index.to_i - 1].name} Visit #{WikiScraper.place_url(@top_dest_list[index.to_i - 1]).to_s.gsub("#<URI::HTTPS","")}" 
         puts ""
@@ -51,7 +51,6 @@ Where are you today? Enter your current city and state here:"
       end  
     end
       puts "Happy Traveling!"
-      return
   end 
   
 end  
